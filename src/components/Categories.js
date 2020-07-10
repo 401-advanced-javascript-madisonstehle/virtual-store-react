@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 function Categories(props) {
   let categoriesDisplay = [];
 
   for (let i = 0; i < props.categories.length; i++) {
     categoriesDisplay.push(
-      <button 
+      <Button
+        variant="contained"
+        color="primary"
         key={i} 
         onClick={(e) => {
           props.dispatch({
@@ -15,14 +19,14 @@ function Categories(props) {
           })
       }}>
         {props.categories[i].displayName || props.categories[i].name}
-      </button>
+      </Button>
     )
   }
 
   return (
-    <div>
+    <Container maxWidth="sm">
       { categoriesDisplay }
-    </div>
+    </Container>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Container from '@material-ui/core/Container'
 
 function Products(props) {
   let productDisplay = [];
@@ -15,10 +16,10 @@ function Products(props) {
 
   if (productDisplay) {
     return (
-      <div>
+      <Container maxWidth="sm">
         <h2>Products</h2>
         { productDisplay }
-      </div>
+      </Container>
     )
   } else {
     return (
