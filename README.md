@@ -7,6 +7,7 @@
 
 - [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/1)
 - [ci/cd github actions](https://github.com/madisonstehle/virtual-store-react/actions)
+- [netlify deployment](https://nifty-snyder-2b18b9.netlify.app)
 
 
 ### Setup
