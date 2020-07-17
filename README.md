@@ -1,13 +1,13 @@
-# LAB - Class 29
+# LAB - Class 30
 ## Application State with Redux
 
 ### Author: Madison Stehle
 
 ### Links and Resources
 
-- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/1)
+- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/2)
 - [ci/cd github actions](https://github.com/madisonstehle/virtual-store-react/actions)
-- [netlify deployment](https://nifty-snyder-2b18b9.netlify.app)
+- [netlify deployment]()
 
 
 ### Setup
@@ -18,4 +18,4 @@
 
 
 ### UML
-![Lab 29 UML](./assets/lab29.png)
+![Lab 30 UML]()
