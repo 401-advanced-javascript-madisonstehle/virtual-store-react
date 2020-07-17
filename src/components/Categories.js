@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
@@ -32,7 +33,7 @@ function Categories(props) {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories,
+    categories: state.categories.categories,
   }
 }
 
