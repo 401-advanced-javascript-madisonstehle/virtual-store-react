@@ -49,6 +49,9 @@ const reducer = (state = initState, action) => {
   const newState = {...state}
 
   switch (action.type) {
+    case 'ADD_PRODUCT':
+      newState.products.push(action.payload);
+      break;
     default:
       break;
   };
