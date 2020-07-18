@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -19,7 +21,14 @@ function Header(props) {
         </Toolbar>
       </AppBar>
 
-      <h4>Cart: {props.cartCount}</h4>
+      <Container>
+        <h4>In Cart: {props.cartCount}</h4>
+        <Button
+          variant="contained"
+          color="secondary"
+        >View Cart</Button>
+      </Container>
+
       {/* <Badge badgeContent={4} color="primary">
         <Mail />
       </Badge> */}

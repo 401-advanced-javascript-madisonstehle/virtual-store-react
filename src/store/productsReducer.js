@@ -1,5 +1,5 @@
 const initState = {
-  products: [
+  initProducts: [
     { 
       name: 'TV', 
       description: 'to watch the things', 
@@ -49,6 +49,8 @@ const reducer = (state = initState, action) => {
   const newState = {...state}
 
   switch (action.type) {
+    case 'GET_PRODUCTS':
+      break;
     case 'ADD_PRODUCT':
       newState.products.push(action.payload);
       break;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCart } from '../store/cartReducer.js';
+import * as actions from '../store/store-actions.js';
 
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+
 
 function Products(props) {
   let productDisplay = [];
@@ -21,10 +22,7 @@ function Products(props) {
           size="small"
           onClick = { (e) => {
             console.log('click!');
-            addToCart(props.dispatch({
-              type: 'ADD_TO_CART',
-              payload: props.products[i]
-            }));
+            props.addToCart(props.products[i]);
           }}>
           Add to Cart
         </Button>
@@ -51,11 +49,16 @@ function Products(props) {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products.products,
+    products: state.products.initProducts,
     currentCategory: state.categories.currentCategory,
     cartCount: state.cart.cartCount,
     cartContents: state.cart.cartContents
   }
 }
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = (dispatch, getState) => ({
+  addToCart: (data) => dispatch( actions.addToCart(data) ),
+  removeFromCart: (id) => dispatch( actions.removeFromCart(id) )
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
