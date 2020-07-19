@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-// import Badge from '@material-ui/core/Badge';
-// import { Mail } from '@material-ui/icons'
 
 
 function Header(props) {
+  let cartDisplay = [];
+
+  if (props.cartContents) {
+    props.cartContents.forEach( (product, idx) => {
+      cartDisplay.push(<li key={idx}>{product.display_name}</li>);
+    })
+  }
+
   return (
     <div>
       <AppBar position="static">
@@ -22,19 +27,15 @@ function Header(props) {
       </AppBar>
 
       <Container>
-        <h4>In Cart: {props.cartCount}</h4>
-        <Button
-          variant="contained"
-          color="secondary"
-        >View Cart</Button>
+        <h4>In Cart: {props.cartCount} Items</h4>
+        <ul>
+          { cartDisplay }
+        </ul>
       </Container>
-
-      {/* <Badge badgeContent={4} color="primary">
-        <Mail />
-      </Badge> */}
     </div>
   );
 }
+
 
 const mapStateToProps = (state) => {
   return {
