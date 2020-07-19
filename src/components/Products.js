@@ -1,34 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { addToCart } from '../store/cartReducer.js';
+import * as actions from '../store/store-actions.js';
 
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+
 
 function Products(props) {
+  const { getProducts } = props;
+
+  useEffect( () => {
+    getProducts();
+  }, [getProducts])
+
   let productDisplay = [];
 
   for (let i= 0; i < props.products.length; i++) {
     if (props.products[i].category === props.currentCategory) {
     productDisplay.push(
-      <div key={i}>
-        <h3>
-          {props.products[i].name}
-        </h3>
-        <Button 
-          color="primary"
-          size="small"
-          onClick = { (e) => {
-            console.log('click!');
-            addToCart(props.dispatch({
-              type: 'ADD_TO_CART',
-              payload: props.products[i]
-            }));
-          }}>
-          Add to Cart
-        </Button>
-      </div>
+      <Card key={i}>
+        <CardContent>
+          <Typography variant='h6'>
+            {props.products[i].display_name}
+          </Typography>
+          <Typography variant='body2'>
+            {props.products[i].description}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button 
+            color="primary"
+            size="small"
+            onClick = { (e) => {
+              props.addToCart(props.products[i]);
+            }}>
+            Add to Cart
+          </Button>
+        </CardActions>
+      </Card>
       )
     }
   }
@@ -37,7 +52,9 @@ function Products(props) {
     return (
       <Container maxWidth="sm">
         <h2>Products</h2>
-        { productDisplay }
+        <Grid container spacing={4}>
+          { productDisplay }
+        </Grid>
       </Container>
     )
   } else {
@@ -51,11 +68,16 @@ function Products(props) {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products.products,
+    products: state.products.initProducts,
     currentCategory: state.categories.currentCategory,
     cartCount: state.cart.cartCount,
     cartContents: state.cart.cartContents
   }
 }
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = (dispatch, getState) => ({
+  getProducts: (data) => dispatch( actions.getProducts(data) ),
+  addToCart: (data) => dispatch( actions.addToCart(data) ),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

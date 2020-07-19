@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
+import * as actions from '../store/store-actions.js';
 
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
 function Categories(props) {
+  const { getCategories } = props;
+
+  useEffect( () => {
+    getCategories();
+  }, [getCategories]);
+
+
   let categoriesDisplay = [];
 
-  for (let i = 0; i < props.categories.length; i++) {
+  for (let i = 0; i < props.categoriesList.length; i++) {
     categoriesDisplay.push(
       <Button
         variant="contained"
         color="primary"
         key={i} 
         onClick={(e) => {
-          props.dispatch({
-          type: 'CHANGE_CATEGORY',
-            payload: props.categories[i].name,
-          })
-      }}>
-        {props.categories[i].displayName || props.categories[i].name}
+          props.changeCategory(props.categoriesList[i].name)
+        }}>
+        {props.categoriesList[i].display_name || props.categoriesList[i].name}
       </Button>
     )
   }
@@ -33,8 +39,13 @@ function Categories(props) {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories.categories,
+    categoriesList: state.categories.categoriesList,
   }
 }
 
-export default connect(mapStateToProps)(Categories);
+const mapDispatchToProps = (dispatch, getState) => ({
+  getCategories: (data) => dispatch( actions.getCategories(data) ),
+  changeCategory: (payload) => dispatch( actions.changeCategory(payload) )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

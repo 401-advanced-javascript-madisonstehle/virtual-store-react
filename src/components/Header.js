@@ -1,14 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import * as actions from '../store/store-actions.js';
+
+import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-// import Badge from '@material-ui/core/Badge';
-// import { Mail } from '@material-ui/icons'
 
 
 function Header(props) {
+  let cartDisplay = [];
+
+  if (props.cartContents) {
+    props.cartContents.forEach( (product, idx) => {
+      cartDisplay.push(
+        <li key={idx}>
+          {product.display_name}
+          <Button 
+          color="primary"
+          size="small"
+          onClick = { (e) => {
+            props.removeFromCart(idx);
+          }}>
+          Remove From Cart
+          </Button>
+        </li>
+      );
+    });
+  }
+
   return (
     <div>
       <AppBar position="static">
@@ -19,13 +41,16 @@ function Header(props) {
         </Toolbar>
       </AppBar>
 
-      <h4>Cart: {props.cartCount}</h4>
-      {/* <Badge badgeContent={4} color="primary">
-        <Mail />
-      </Badge> */}
+      <Container>
+        <h4>In Cart: {props.cartCount} Items</h4>
+        <ul>
+          { cartDisplay }
+        </ul>
+      </Container>
     </div>
   );
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -34,4 +59,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch, getState) => ({
+  removeFromCart: (idx) => dispatch( actions.removeFromCart(idx) ),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
