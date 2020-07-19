@@ -12,8 +12,8 @@ const reducer = (state = initState, action) => {
       newState.cartCount++;
       break;
     case 'REMOVE_FROM_CART':
-      newState.cartContents = newState.cartContents.filter( (val) => {
-        return val.name !== action.payload;
+      newState.cartContents = newState.cartContents.filter( (val, idx) => {
+        return idx !== action.payload;
       });
       newState.cartCount--;
       break;

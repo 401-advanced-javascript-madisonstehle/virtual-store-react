@@ -38,9 +38,9 @@ export const addToCart = (product) => {
   };
 }
 
-export const removeFromCart = (id) => {
+export const removeFromCart = (idx) => {
   return { 
     type: 'REMOVE_FROM_CART', 
-    payload: id
+    payload: idx
   };
 }

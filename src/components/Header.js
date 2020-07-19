@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import * as actions from '../store/store-actions.js';
+
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
@@ -12,8 +15,20 @@ function Header(props) {
 
   if (props.cartContents) {
     props.cartContents.forEach( (product, idx) => {
-      cartDisplay.push(<li key={idx}>{product.display_name}</li>);
-    })
+      cartDisplay.push(
+        <li key={idx}>
+          {product.display_name}
+          <Button 
+          color="primary"
+          size="small"
+          onClick = { (e) => {
+            props.removeFromCart(idx);
+          }}>
+          Remove From Cart
+          </Button>
+        </li>
+      );
+    });
   }
 
   return (
@@ -44,4 +59,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch, getState) => ({
+  removeFromCart: (idx) => dispatch( actions.removeFromCart(idx) ),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -15,11 +15,10 @@
 
 #### How to initialize/run the application
 
-- `npm start` if running locally
+- `npm start` if running locally otherwise click the netlify link above.
 
 ### Actual Products Found:
 - [Milk and Vine](https://www.amazon.com/Milk-Vine-Inspirational-Quotes-Classic-ebook/dp/B076NWPQYZ)
+- [The Paper Menagerie](https://bookshop.org/books/the-paper-menagerie-and-other-stories/9781481424363)
+- [The Spirit of Disobedience](https://www.goodreads.com/work/quotes/104719-the-spirit-of-disobedience-resisting-the-charms-of-fake-politics-mindl)
 - [Death Wish Coffee](https://www.deathwishcoffee.com/products/death-wish-coffee)
-
-### UML
-![Lab 32 UML]()
