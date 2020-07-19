@@ -1,11 +1,11 @@
-# LAB - Class 30
-## Application State with Redux
+# LAB - Class 32
+## Redux - Asynchronous Actions
 
 ### Author: Madison Stehle
 
 ### Links and Resources
 
-- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/2)
+- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/3)
 - [ci/cd github actions](https://github.com/madisonstehle/virtual-store-react/actions)
 - [netlify deployment]()
 
@@ -21,4 +21,4 @@
 - [Death Wish Coffee](https://www.deathwishcoffee.com/products/death-wish-coffee)
 
 ### UML
-![Lab 30 UML]()
+![Lab 32 UML]()
