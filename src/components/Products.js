@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../store/store-actions.js';
@@ -8,6 +8,12 @@ import Container from '@material-ui/core/Container';
 
 
 function Products(props) {
+  const { getProducts } = props;
+
+  useEffect( () => {
+    getProducts();
+  }, [getProducts])
+
   let productDisplay = [];
 
   for (let i= 0; i < props.products.length; i++) {
@@ -15,7 +21,7 @@ function Products(props) {
     productDisplay.push(
       <div key={i}>
         <h3>
-          {props.products[i].name}
+          {props.products[i].display_name}
         </h3>
         <Button 
           color="primary"
@@ -57,8 +63,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch, getState) => ({
+  getProducts: (data) => dispatch( actions.getProducts(data) ),
   addToCart: (data) => dispatch( actions.addToCart(data) ),
-  removeFromCart: (id) => dispatch( actions.removeFromCart(id) )
+  // removeFromCart: (id) => dispatch( actions.removeFromCart(id) )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

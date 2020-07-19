@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const getCategories = () => async dispatch => {
   let results = await axios.get('https://express-server-madisonstehle.herokuapp.com/api/v1/categories');
-  console.log(results.data);
   dispatch(renderCategories(results.data))
 }
 
@@ -14,14 +13,20 @@ const renderCategories = payload => {
 }
 
 export const getProducts = () => async dispatch => {
-  let results = await axios.get('https://express-server-madisonstehle.herokuapp.com/api/v1/categories');
-  console.log(results.data);
+  let results = await axios.get('https://express-server-madisonstehle.herokuapp.com/api/v1/products');
   dispatch(renderProducts(results.data));
 }
 
 const renderProducts = payload => {
   return {
     type: 'GET_PRODUCTS',
+    payload
+  }
+}
+
+export const changeCategory = payload => {
+  return {
+    type: 'CHANGE_CATEGORY',
     payload
   }
 }

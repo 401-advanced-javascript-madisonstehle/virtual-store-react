@@ -16,6 +16,9 @@
 
 - `npm start` if running locally
 
+### Actual Products Found:
+- [Milk and Vine](https://www.amazon.com/Milk-Vine-Inspirational-Quotes-Classic-ebook/dp/B076NWPQYZ)
+- [Death Wish Coffee](https://www.deathwishcoffee.com/products/death-wish-coffee)
 
 ### UML
 ![Lab 30 UML]()
