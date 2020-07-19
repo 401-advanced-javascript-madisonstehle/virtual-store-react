@@ -7,8 +7,9 @@
 
 - [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/3)
 - [ci/cd github actions](https://github.com/madisonstehle/virtual-store-react/actions)
-- [netlify deployment]()
-
+- [netlify deployment](https://sleepy-euclid-8fe396.netlify.app/)
+- [api](https://express-server-madisonstehle.herokuapp.com/)
+- [api-repo](https://github.com/madisonstehle/express_server)
 
 ### Setup
 
