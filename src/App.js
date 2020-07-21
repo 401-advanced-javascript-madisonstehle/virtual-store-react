@@ -6,7 +6,7 @@ import store from './store/store.js';
 import Header from './components/Header.js';
 import Categories from './components/Categories.js';
 import Products from './components/Products.js';
-// import Footer from './components/Footer.js';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Header />
           <Categories />
           <Products />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </Provider>
     </React.Fragment>
