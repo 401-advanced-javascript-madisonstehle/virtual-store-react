@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../store/store-actions.js';
 
-import Container from '@material-ui/core/Container'
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+
 
 function Details(props) {
   const {getOneProduct} = props;
@@ -14,10 +16,10 @@ function Details(props) {
 
   return(
     <Container>
-      <div>
-        Details: { props.product.display_name }
-      </div>
-      <Link to={'/'} >Back to All Products</Link>
+    <Link to={'/'} >Back to All Products</Link>
+      <Typography variant="h4" color="secondary">Details</Typography>
+      <Typography variant="h5">{ props.product.display_name }</Typography>
+      <Typography variant="body1">{props.product.description}</Typography>
     </Container>
   )
 };
