@@ -5,9 +5,9 @@ import Typography from '@material-ui/core/Typography';
 
 function Footer() {
   return (
-    <AppBar position="" color="primary">
+    <AppBar position="sticky" color="primary">
         <Toolbar>
-          <Typography variant="h7">
+          <Typography variant="body1">
             &copy; 2020 Madison Stehle  
           </Typography>
         </Toolbar>

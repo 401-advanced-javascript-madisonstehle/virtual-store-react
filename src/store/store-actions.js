@@ -44,3 +44,10 @@ export const removeFromCart = (idx) => {
     payload: idx
   };
 }
+
+export const getOneProduct = (id) => {
+  return {
+    type: 'SHOW_DETAILS',
+    payload: id,
+  }
+}

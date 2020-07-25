@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../store/store-actions.js';
 
@@ -42,6 +43,7 @@ function Products(props) {
             }}>
             Add to Cart
           </Button>
+          <Link to={`/details/${props.products[i]._id}`}>View Details</Link>
         </CardActions>
       </Card>
       )

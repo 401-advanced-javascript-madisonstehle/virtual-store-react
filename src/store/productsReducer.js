@@ -1,5 +1,6 @@
 const initState = {
   initProducts: [],
+  activeProduct: {},
 }
 
 const reducer = (state = initState, action) => {
@@ -11,6 +12,9 @@ const reducer = (state = initState, action) => {
       break;
     case 'ADD_PRODUCT':
       newState.initProducts.push(action.payload);
+      break;
+    case 'SHOW_DETAILS':
+      newState.activeProduct = newState.initProducts.filter( product => product._id === action.payload )[0];
       break;
     default:
       break;

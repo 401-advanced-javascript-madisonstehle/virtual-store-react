@@ -1,13 +1,12 @@
-# LAB - Class 32
-## Redux - Asynchronous Actions
+# LAB - Class 33
+## Redux - Additional Topics
 
 ### Author: Madison Stehle
 
 ### Links and Resources
 
-- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/3)
+- [submission PR](https://github.com/madisonstehle/virtual-store-react/pull/4)
 - [ci/cd github actions](https://github.com/madisonstehle/virtual-store-react/actions)
-- [netlify deployment](https://sleepy-euclid-8fe396.netlify.app/)
 - [api](https://express-server-madisonstehle.herokuapp.com/)
 - [api-repo](https://github.com/madisonstehle/express_server)
 
